@@ -1,4 +1,4 @@
-# live-chat
+# Live chat with Firebase Authentication
 
 ## Project setup
 ```
