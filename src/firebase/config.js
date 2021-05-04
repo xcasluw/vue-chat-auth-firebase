@@ -1,15 +1,16 @@
+
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBXLghscMdEpUwkrzjPtdXtqcdl2S44_Jo",
-    authDomain: "chat-fd782.firebaseapp.com",
-    databaseURL: "https://chat-fd782.firebaseio.com",
-    projectId: "chat-fd782",
-    storageBucket: "chat-fd782.appspot.com",
-    messagingSenderId: "1099253855985",
-    appId: "1:1099253855985:web:41f72cfdd34f464a3fdb50"
+    apiKey: process.env.VUE_APP_API_KEY,
+    authDomain: process.env.VUE_APP_AUTH_DOMAIN,
+    databaseURL: process.env.VUE_APP_DATABASE_URL,
+    projectId: process.env.VUE_APP_PROJECT_ID,
+    storageBucket: process.env.VUE_APP_STORAGED_BUCKET,
+    messagingSenderId: process.env.VUE_APP_MESSAGING_SENDER_ID,
+    appId: process.env.VUE_APP_APP_ID
 }
 
 // init firebase
