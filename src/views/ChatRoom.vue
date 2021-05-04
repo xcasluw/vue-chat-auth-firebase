@@ -6,14 +6,22 @@
 
 <script>
   import Navbar from '../components/Navbar.vue'
+  import GetUser from '../composables/getUser'
 
-  import { ref } from 'vue'
+  import { ref, watch } from 'vue'
+  import { useRouter } from 'vue-router'
 
   export default {
     components: { Navbar },
     setup() {
-      const showLoginForm = ref(true)
-      return { showLoginForm }
+      const { user } = GetUser()
+      const router = useRouter()
+
+      watch(user, () => {
+        if (!user.value) {
+          router.push({ name: 'Welcome' })
+        }
+      })
     }
   }
 </script>
