@@ -10,27 +10,27 @@
 </template>
 
 <script>
-    import { ref } from 'vue'
-    import useSignIn from '../composables/useSignIn'
+  import { ref } from 'vue'
+  import useSignIn from '../composables/useSignIn'
 
-    export default {
-        setup(props, context) {
-            // refs
-            const email = ref('')
-            const password = ref('')
+  export default {
+      setup(props, context) {
+          // refs
+          const email = ref('')
+          const password = ref('')
 
-            const { error, signIn } = useSignIn()
+          const { error, signIn } = useSignIn()
 
-            const handleSubmit = async () => {
-                await signIn(email.value, password.value)
-                if (!error.value) {
-                    context.emit('signIn')
-                }
-            }
+          const handleSubmit = async () => {
+              await signIn(email.value, password.value)
+              if (!error.value) {
+                  context.emit('signIn')
+              }
+          }
 
-            return { email, password, handleSubmit, error }
-        }
-    }
+          return { email, password, handleSubmit, error }
+      }
+  }
 </script>
 
 <style>

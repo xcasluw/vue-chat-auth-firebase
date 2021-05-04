@@ -1,6 +1,6 @@
 <template>
   <div class="welcome container">
-    <p>Welcome</p>
+    <p>Mock Firebase</p>
     <div v-if="showLoginForm">
       <h2>Entrar</h2>
       <SignInForm @signIn="enterChat" />
@@ -28,7 +28,7 @@
       const router = useRouter()
      
      const enterChat = () => {
-       router.push({ name: 'chatroom' })
+       router.push({ name: 'Patients' })
       }
 
       return { showLoginForm, enterChat }

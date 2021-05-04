@@ -5,27 +5,26 @@ const error = ref(null)
 
 const signUp = async (email, password, displayName) => {
 
-    error.value = null
+  error.value = null
 
-    try {
-        const res = await projectAuth.createUserWithEmailAndPassword(email, password)
-        if (!res) {
-            throw new Error('Houve um erro ao cadastrar')
-        }
+  try {
+      const res = await projectAuth.createUserWithEmailAndPassword(email, password)
+      if (!res) {
+          throw new Error('Houve um erro ao cadastrar')
+      }
 
-        await res.user.updateProfile({ displayName })
-        error.value = null
+      await res.user.updateProfile({ displayName })
+      error.value = null
 
-        return res
+      return res
 
-    } catch(err) {
-        error.value = err.message
-    }
+  } catch(err) {
+      error.value = err.message
+  }
 }
 
 const useSignUp = () => {
-
-    return { error, signUp}
+  return { error, signUp}
 }
 
 export default useSignUp

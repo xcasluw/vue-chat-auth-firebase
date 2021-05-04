@@ -11,27 +11,27 @@
 </template>
 
 <script>
-    import { ref } from 'vue'
-    import useSignUp from '../composables/useSignUp'
+  import { ref } from 'vue'
+  import useSignUp from '../composables/useSignUp'
 
-    export default {
-        setup(props, context) {
-            const { error, signUp } = useSignUp()
-            // refs
-            const displayName = ref('')
-            const email = ref('')
-            const password = ref('')
+  export default {
+      setup(props, context) {
+          const { error, signUp } = useSignUp()
+          // refs
+          const displayName = ref('')
+          const email = ref('')
+          const password = ref('')
 
-            const handleSubmit = async () => {
-                await signUp(email.value, password.value, displayName.value)
-                if (!error.value) {
-                    context.emit('signUp')
-                }
-            }
+          const handleSubmit = async () => {
+              await signUp(email.value, password.value, displayName.value)
+              if (!error.value) {
+                  context.emit('signUp')
+              }
+          }
 
-            return { displayName, email, password, handleSubmit, error }
-        }
-    }
+          return { displayName, email, password, handleSubmit, error }
+      }
+  }
 </script>
 
 <style>

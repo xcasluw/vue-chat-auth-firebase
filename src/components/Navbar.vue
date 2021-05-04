@@ -9,24 +9,24 @@
 </template>
 
 <script>
-    import useSignOut from '../composables/useSignOut'
-    import getUser from '../composables/getUser'
+  import useSignOut from '../composables/useSignOut'
+  import getUser from '../composables/getUser'
 
-    export default {
-        setup() {
-            const { signOut, error } = useSignOut()
-            const { user } = getUser()
+  export default {
+      setup() {
+          const { signOut, error } = useSignOut()
+          const { user } = getUser()
 
-            const handleClick = async () => {
-                await signOut()
-                if (!error.value) {
-                    console.log('Logged out')
-                }
-            }
+          const handleClick = async () => {
+              await signOut()
+              if (!error.value) {
+                  console.log('Logged out')
+              }
+          }
 
-            return { handleClick, user }
-        }
-    }
+          return { handleClick, user }
+      }
+  }
 </script>
 
 <style>
